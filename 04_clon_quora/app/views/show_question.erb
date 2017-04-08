@@ -1,0 +1,30 @@
+<nav>
+  <ul>
+    <li><a href="#"><b><%= @user_login%></b></a>
+      <ul class="submenu">
+        <li><a href="#">Profile</a></li>
+        <li><a href="/logout">Close session</a></li>
+      </ul>
+    </li> 
+    <li><a href="#">Answer</a></li> 
+    <li><a href="/secret">Read</a></li>  
+  </ul>
+  <br clear="all">
+</nav>  
+  <div> 
+    <% @quest_id.each do |quest|%>
+    <h4><%= quest.id %>. <%= quest.question %></h4>
+      <% quest.answers.each_with_index do |ans, index|%>
+        <p><%= index+1 %>. <%= ans.answer%></p>
+      <% end%>
+
+     <form method="post" action="/create_answer/<%=quest.id %>">
+      <textarea placeholder="Escribe una respuesta" name="answer" cols="70"></textarea><br><br>
+      <input type="submit" value="Send answer">
+    </form>
+
+
+    <% end%>
+
+    
+  </div>

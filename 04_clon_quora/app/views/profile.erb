@@ -1,0 +1,15 @@
+<% @profile_user.each do |user| %>
+  <h1><%= user.name %></h1>
+
+  <h4>Your questions:</h4>
+
+  <% user.questions.each do |question| %>
+    <%= question.question%><br>
+  <%end%>
+  <h4>Your answers:</h4>
+    <% user.answers.each do |ans| %>
+        <%= ans.answer%><br>
+    <%end%> 
+<% end %>
+
+
